@@ -7,7 +7,8 @@ if [ "$#" -ne 2 ]; then
     exit 1
 fi
 
-rm -f Models.zip
+ModelsArchiveName=Models_$2.zip
+rm -f $ModelsArchiveName
 
 for ModelName in src/Models/*.cpp
 do
@@ -23,4 +24,4 @@ do
 	
 done 
 
-zip -r Models.zip Build -i '*.so'
+zip -r $ModelsArchiveName Build -i '*.so'

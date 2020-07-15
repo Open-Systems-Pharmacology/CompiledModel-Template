@@ -1,4 +1,4 @@
-#define MODELNAME MySuperModel
+#define MODELNAME MySuperModel 
 #include "ModelDerived.h"
 
 void CLASSNAME(MODELNAME)::ODERHSFunction(const double Time, const double *__restrict__ y, const double *__restrict__ P, const unsigned int *__restrict__ S, double *__restrict__ dy) {

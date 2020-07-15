@@ -20,6 +20,7 @@ do
     do
         cmake -BBuild/${BuildType}/x64/ -H. -DCMAKE_BUILD_TYPE=${BuildType} -DMODEL_NAME=${ModelName} -DOS_NAME=$1
         make -C Build/${BuildType}/x64/
+		mv Build/${BuildType}/x64/lib${ModelName}.so Build/${BuildType}/x64/${ModelName}.so 
     done
 	
 done 

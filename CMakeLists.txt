@@ -13,7 +13,7 @@ include_directories (
 
 file (GLOB SOURCES 
         ${${MODEL_NAME}_SOURCE_DIR}/src/Models/${MODEL_NAME}.cpp
-		${${MODEL_NAME}_SOURCE_DIR}/packages/OSPSuite.CPP-Toolbox.${OS_NAME}/OSPSuite.CPP-Toolbox/src/Model.cpp
+        ${${MODEL_NAME}_SOURCE_DIR}/packages/OSPSuite.CPP-Toolbox.${OS_NAME}/OSPSuite.CPP-Toolbox/src/Model.cpp
 )
 
 add_library (${MODEL_NAME} SHARED ${SOURCES})

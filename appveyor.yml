@@ -40,8 +40,6 @@ skip_commits:
     - "*.md"
 
 after_build:
-#  - cmd: nuget pack src\OSPSuite.CPP-Toolbox\OSPSuite.CPP-Toolbox.nuspec -version %app_version%
-#  - sh: nuget pack src/OSPSuite.CPP-Toolbox/OSPSuite.CPP-Toolbox_Ubuntu18.nuspec -version $app_version
-#  - ps: Get-ChildItem .\OSPSuite.CPP-Toolbox*.nupkg | % { Push-AppveyorArtifact $_.FullName -FileName $_.Name }
+  - ps: Get-ChildItem .\*.zip | % { Push-AppveyorArtifact $_.FullName -FileName $_.Name }
 
 

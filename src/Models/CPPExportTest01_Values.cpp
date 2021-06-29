@@ -122,8 +122,8 @@ void CLASSNAME(MODELNAME)::ODEObservers(const double Time, const double *__restr
     obs[6] = (0.25*y[2]);
     obs[7] = (0.5*y[3]);
     obs[8] = (0.25*y[3]);
-    obs[9] = 0.00000000000000000e+00;
-    obs[10] = 0.00000000000000000e+00;
+    obs[9] = (P[0]*0.5);
+    obs[10] = (P[0]*0.25);
     obs[11] = (y[6]+y[11]);
     obs[12] = (0.5*y[4]);
     obs[13] = (0.5*y[5]);
@@ -136,28 +136,28 @@ void CLASSNAME(MODELNAME)::ODEObservers(const double Time, const double *__restr
     obs[20] = (0.5*y[9]);
     obs[21] = (0.5*y[10]);
     obs[22] = (0.5*y[11]);
-    obs[23] = 0.00000000000000000e+00;
-    obs[24] = 0.00000000000000000e+00;
+    obs[23] = (P[3]*0.5);
+    obs[24] = (P[4]*0.5);
     obs[25] = (0.5*y[12]);
     obs[26] = (0.25*y[12]);
     obs[27] = (0.5*y[13]);
     obs[28] = (0.25*y[13]);
-    obs[29] = 0.00000000000000000e+00;
-    obs[30] = 0.00000000000000000e+00;
-    obs[31] = 0.00000000000000000e+00;
-    obs[32] = 0.00000000000000000e+00;
+    obs[29] = (P[1]*0.5);
+    obs[30] = (P[1]*0.25);
+    obs[31] = (P[2]*0.5);
+    obs[32] = (P[2]*0.25);
     obs[33] = (y[6]+y[11]);
     obs[34] = (y[6]+y[11]);
     obs[35] = T_3(Time);
-    obs[36] = ;
-    obs[37] = ;
-    obs[38] = ;
-    obs[39] = ;
-    obs[40] = ;
+    obs[36] = P[0];
+    obs[37] = P[3];
+    obs[38] = P[4];
+    obs[39] = P[1];
+    obs[40] = P[2];
 }
 
 void CLASSNAME(MODELNAME)::ODEInitialParameters(double *__restrict__ P) {
-    8.000000    0.000000    0.000000    0.000000    0.000000}
+}
 
 void CLASSNAME(MODELNAME)::ODEInitialValues(double *__restrict__ y, double *__restrict__ P, unsigned int *__restrict__ S) {
 
@@ -246,8 +246,9 @@ std::set<double> _explicitSwitches(const double *P) {
 }
 
 unsigned int _dimImplicitSwitches() { static const unsigned int dimImplicitSwitches = 0; return dimImplicitSwitches; }
-const double *_P_init() { static const double P_init[] = { NAN /* workaround for Visual Studio to prevent empty arrays */}; return P_init; }
-const unsigned int *_P_map() { static const unsigned int P_map[] = {-1 /* workaround for Visual Studio to prevent empty arrays */}; return P_map; }
+const double *_P_init() { static const double P_init[] = { 8.00000000000000000e+00, 0.00000000000000000e+00, 0.00000000000000000e+00, 0.00000000000000000e+00, 0.00000000000000000e+00
+                                                           , 0.0, 0.0, 0.0, 0.0, 0.0}; return P_init; }
+const unsigned int *_P_map() { static const unsigned int P_map[] = {62, 210, 223, 159, 169}; return P_map; }
 
 const unsigned int *_O_map() { static const unsigned int O_map[] = {16, 18, 27, 29, 35, 48, 50, 58, 60, 73, 75, 77, 86, 94, 100, 119, 121, 129, 131, 133, 143, 151, 157, 167, 180, 196, 198, 206, 208, 219, 221, 229, 231, 233, 236, 339, 340, 341, 342, 343, 344}; return O_map; }
 
@@ -258,24 +259,24 @@ const double *_Y_sca() { static const double Y_sca[] = {1.00000000000000000e+00,
 const unsigned int *_S_init() { static const unsigned int S_init[] = {1
                                                     }; return S_init; }
 
-unsigned int _dimP() { static const unsigned int dimP = 0; return dimP; }
-unsigned int _dimP_free() { static const unsigned int dimP_free = 0; return dimP_free; }
+unsigned int _dimP() { static const unsigned int dimP = 5; return dimP; }
+unsigned int _dimP_free() { static const unsigned int dimP_free = 5; return dimP_free; }
 unsigned int _dimS() { static const unsigned int dimS = 1; return dimS; }
 unsigned int _dimObservers() { static const unsigned int dimObservers = 41; return dimObservers; }
 
-size_t _hash() { static const size_t hash = 1813195195471792918U; return hash; }
+size_t _hash() { static const size_t hash = 5203968613535351493U; return hash; }
 int _dimNNZ() { static int dimNNZ = 38; return dimNNZ; }
 const int* _jacRows() { static const int jacRows[] = {0, 7, 1, 8, 0, 2, 4, 1, 3, 5, 2, 4, 6, 3, 4, 5, 6, 4, 6, 7, 9, 12, 8, 10, 13, 7, 9, 11, 8, 9, 10, 11, 9, 11, 2, 12, 3, 13}; return jacRows; }
 const int* _jacCols() { static const int jacCols[] = {0, 2, 4, 7, 10, 13, 17, 19, 22, 25, 28, 32, 34, 36, 38}; return jacCols; }
 int _dimNNZ_fp() { static int dimNNZ_fp = 0; return dimNNZ_fp; }
 const int* _jacRows_fp() { static const int jacRows_fp[] = {}; return jacRows_fp; }
-const int* _jacCols_fp() { static const int jacCols_fp[] = {0}; return jacCols_fp; }
+const int* _jacCols_fp() { static const int jacCols_fp[] = {0, 0, 0, 0, 0, 0}; return jacCols_fp; }
 int _dimNNZ_ox() { static int dimNNZ_ox = 0; return dimNNZ_ox; }
 const int* _jacRows_ox() { static const int jacRows_ox[] = {}; return jacRows_ox; }
-const int* _jacCols_ox() { static const int jacCols_ox[] = {0}; return jacCols_ox; }
+const int* _jacCols_ox() { static const int jacCols_ox[] = {0, 0, 0, 0, 0, 0}; return jacCols_ox; }
 int _dimNNZ_op() { static int dimNNZ_op = 0; return dimNNZ_op; }
 const int* _jacRows_op() { static const int jacRows_op[] = {}; return jacRows_op; }
-const int* _jacCols_op() { static const int jacCols_op[] = {0}; return jacCols_op; }
+const int* _jacCols_op() { static const int jacCols_op[] = {0, 0, 0, 0, 0, 0}; return jacCols_op; }
 }
 
 void CLASSNAME(MODELNAME)::ODEOptions(double &relTol, double &absTol, double &hInit, double &hMin, double &hMax, long int &maxSteps, bool &useJac, const double *__restrict__ P) {

@@ -1,5 +1,8 @@
 #define MODELNAME CPPExportTest01_Values
 #include "ModelDerived.h"
+#include <map>
+
+using namespace std;
 
 void CLASSNAME(MODELNAME)::ODERHSFunction(const double Time, const double *__restrict__ y, const double *__restrict__ P, const unsigned int *__restrict__ S, double *__restrict__ dy) {
     const double P_14_ = (0.5*y[0]);  // SpecModel|Organism|ArterialBlood|Plasma|A|C

@@ -16,7 +16,7 @@ do
     ModelName=${ModelName%%.*}
     echo "****************************************** BUILDING ${ModelName} ******************************************"
 	
-    for BuildType in Debug #Release
+    for BuildType in Debug Release
     do
         cmake -BBuild/${BuildType}/x64/ -H. -DCMAKE_BUILD_TYPE=${BuildType} -DMODEL_NAME=${ModelName} -DOS_NAME=$1
         make -C Build/${BuildType}/x64/
